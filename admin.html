@@ -61,7 +61,7 @@ async function show(session) {
 sb.auth.getSession().then(({ data }) => show(data.session));
 $('go').onclick = async () => {
   const { error } = await sb.auth.signInWithPassword({ email: $('em').value.trim(), password: $('pw').value });
-  if (error) $('lm').textContent = 'Неверный email или пароль'; else sb.auth.getSession().then(({ data }) => show(data.session));
+  if (error) $('lm').textContent = 'error.message'; else sb.auth.getSession().then(({ data }) => show(data.session));
 };
 $('out').onclick = async () => { await sb.auth.signOut(); show(null); };
 $('add').onclick = async () => {
